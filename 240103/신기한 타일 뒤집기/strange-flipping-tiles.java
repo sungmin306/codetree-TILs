@@ -6,8 +6,8 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int[] tile = new int[2222];
-        int point = 1111;
+        int[] tile = new int[1000000];
+        int point = 500000;
         for(int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
