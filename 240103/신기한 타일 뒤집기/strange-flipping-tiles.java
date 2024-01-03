@@ -15,14 +15,16 @@ public class Main {
             for(int j = 0; j < x; j++) {
                 if (c.equals("R")) {
                     tile[point] = 1;
-                    point++;   
+                    if(j!= x-1) {
+                        point++;
+                    }
                 }
-                point--;
                 if (c.equals("L")) {
                     tile[point] = -1;
-                    point--;
+                    if(j!= x-1) {
+                        point--;
+                    }
                 }
-                point++;
             }
             //System.out.println(Arrays.toString(tile));
         }
