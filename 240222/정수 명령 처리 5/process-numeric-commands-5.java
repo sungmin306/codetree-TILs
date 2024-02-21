@@ -9,19 +9,18 @@ public class Main {
         for(int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             String s = st.nextToken();
-            if(s == "push_back") {
+            if(s.equals("push_back")) {
                 int m = Integer.parseInt(st.nextToken());
                 arrayList.add(m);
             }
-            else if(s == "pop_back") {
-                int m = Integer.parseInt(st.nextToken());
-                arrayList.remove(m);
+            else if(s.equals("pop_back")) {
+                arrayList.remove(arrayList.size()-1);
             }
-            else if(s == "get") {
+            else if(s.equals("get")) {
                 int m = Integer.parseInt(st.nextToken());
-                System.out.println(arrayList.get(m));
+                System.out.println(arrayList.get(m-1));
             }
-            else if(s == "size") {
+            else if(s.equals("size")) {
                 System.out.println(arrayList.size());
             }
         }
