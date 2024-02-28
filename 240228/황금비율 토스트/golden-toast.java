@@ -29,8 +29,10 @@ public class Main {
                 it.next();
             }
             else if(ans.equals("D")) {
-                it.next();
-                it.remove();
+                if(it.hasNext()) {
+                    it.next();
+                    it.remove();
+                }
             }
         }
 
