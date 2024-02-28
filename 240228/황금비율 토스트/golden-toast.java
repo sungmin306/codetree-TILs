@@ -15,7 +15,7 @@ public class Main {
         }
         ListIterator<Character> it = l.listIterator(l.size());
 
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             String ans = st.nextToken();
             if(ans.equals("L")) {
