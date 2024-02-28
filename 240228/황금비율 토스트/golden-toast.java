@@ -19,6 +19,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             String ans = st.nextToken();
             if(ans.equals("L")) {
+                if(it.hasPrevious())
                 it.previous();
             }
             else if(ans.equals("P")) {
@@ -26,7 +27,8 @@ public class Main {
                 it.add(input.charAt(0));
             }
             else if(ans.equals("R")) {
-                it.next();
+                if(it.hasNext())
+                    it.next();
             }
             else if(ans.equals("D")) {
                 if(it.hasNext()) {
