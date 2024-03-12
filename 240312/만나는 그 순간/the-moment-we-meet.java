@@ -19,18 +19,18 @@ public class Main {
             int t = Integer.parseInt(st.nextToken());
             while(t --> 0) {
                 if(d == 'R') arr1[timeA] =  arr1[timeA - 1] + 1;
-                else arr1[timeA] =  arr2[timeA - 1] -1;
+                else arr1[timeA] =  arr1[timeA - 1] -1;
                 timeA++;
             }
         }
-        System.out.println(Arrays.toString(arr1));
+        //System.out.println(Arrays.toString(arr1));
         int timeB = 1;
         for(int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             char d = st.nextToken().charAt(0);
             int t = Integer.parseInt(st.nextToken());
             while(t --> 0) {
-                if(d == 'R') arr2[timeB] =  arr1[timeB - 1] + 1;
+                if(d == 'R') arr2[timeB] =  arr2[timeB - 1] + 1;
                 else arr2[timeB] =  arr2[timeB - 1] -1;
                 timeB++;
             }
