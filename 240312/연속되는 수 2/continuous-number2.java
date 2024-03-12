@@ -15,7 +15,7 @@ public class Main {
                 arrayList.add(i);
             }
         }
-        int maxCount = 0;
+        int maxCount = 1;
         for(int i = 0; i < arrayList.size() -1; i++) {
             int temp = arrayList.get(i+1) - arrayList.get(i);
             maxCount = Math.max(maxCount, temp);
