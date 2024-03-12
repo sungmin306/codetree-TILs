@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static final int MAX_T = 1001;
+    public static final int MAX_T = 2001;
     public static void main(String[] args)throws IOException {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -32,6 +32,7 @@ public class Main {
                 }
             }
         }
+        int timeA = index;
 
         //System.out.println(Arrays.toString(arr1));
         now = 0;
@@ -59,7 +60,7 @@ public class Main {
         //System.out.println(Arrays.toString(arr2));
 
         int result = -1;
-        for(int i = 0; i < MAX_T; i++) {
+        for(int i = 0; i < timeA; i++) {
             if(arr1[i] != 0 && arr1[i] == arr2[i]) {
                 result = i;
                 break;
