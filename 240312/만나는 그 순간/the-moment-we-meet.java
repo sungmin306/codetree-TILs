@@ -58,13 +58,14 @@ public class Main {
 
         //System.out.println(Arrays.toString(arr2));
 
-
+        int result = -1;
         for(int i = 0; i < MAX_T; i++) {
             if(arr1[i] != 0 && arr1[i] == arr2[i]) {
-                System.out.println(i);
+                result = i;
                 break;
             }    
         }
+        System.out.println(result);
 
     
     }
