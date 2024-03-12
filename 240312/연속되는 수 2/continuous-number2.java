@@ -9,16 +9,14 @@ public class Main {
         for(int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        
+        int maxCount = 0;
+        int cnt = 0;
         for(int i = 0; i < n; i++) {
-            if(i == 0 || arr[i-1] != arr[i]) {
-                arrayList.add(i);
-            }
-        }
-        int maxCount = 1;
-        for(int i = 0; i < arrayList.size() -1; i++) {
-            int temp = arrayList.get(i+1) - arrayList.get(i);
-            maxCount = Math.max(maxCount, temp);
+            if(i == 0 || arr[i-1] != arr[i]) cnt = 1;
+            else cnt++;
+            maxCount = Math.max(maxCount, cnt);
+
         }
         System.out.println(maxCount);
     }
