@@ -32,13 +32,19 @@ public class Main {
                 arrayListB.add(distanceB);
             }
         }
-
         int result = 0;
+        int leader = 0;
         for(int i = 0; i < arrayListA.size(); i++) {
-            if(arrayListA.get(i) == arrayListB.get(i)) result++;
+            if(arrayListA.get(i) > arrayListB.get(i)) {
+                if(leader == 2) result++;
+                leader = 1;
+            }
+            else if(arrayListA.get(i) < arrayListB.get(i)) {
+                if(leader == 1) result++;
+                leader = 2;
+            }
         }
-
-        System.out.println(result-1);
+        System.out.println(result);
 
     }
 
