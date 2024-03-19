@@ -1,75 +1,68 @@
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
 
 public class Main {
-    public static ArrayList<Integer> arrayListA = new ArrayList<>();
-    public static ArrayList<Integer> arrayListB = new ArrayList<>();
-    public static void main(String[] args)throws IOException {
-        // 여기에 코드를 작성해주세요.
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        int distanceA = 0;
+    public static final int MAX_T = 1000000;
+    
+    public static int n, m;
+    public static int[] posA = new int[MAX_T  + 1];
+    public static int[] posB = new int[MAX_T  + 1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        int timeA = 1;
         for(int i = 0; i < n; i++) {
-            st = new StringTokenizer(br.readLine());
-            int d = Integer.parseInt(st.nextToken());
-            char c = st.nextToken().charAt(0);
-            if(c == 'L') {
-                 while(d --> 0) {
-                    distanceA--;
-                    arrayListA.add(distanceA);
-                }
+            int t = sc.nextInt();
+            char d = sc.next().charAt(0);
+            
+            while(t-- > 0) {
+                if(d == 'R')
+                    posA[timeA] = posA[timeA - 1] + 1;
+                else
+                    posA[timeA] = posA[timeA - 1] - 1;
+                
+                timeA++;
             }
-            if(c == 'R') {
-                 while(d --> 0) {
-                    distanceA++;
-                    arrayListA.add(distanceA);
-                }
-                    
+        }
+        int timeB = 1;
+        for(int i = 0; i < m; i++) {
+            int t = sc.nextInt();
+            char d = sc.next().charAt(0);
+            
+            while(t-- > 0) {
+                if(d == 'R')
+                    posB[timeB] = posB[timeB - 1] + 1;
+                else
+                    posB[timeB] = posB[timeB - 1] - 1;
+                
+                timeB++;
             }
         }
         
-        int distanceB = 0;
-        for(int i = 0; i < m; i++) {
-            st = new StringTokenizer(br.readLine());
-            int d = Integer.parseInt(st.nextToken());
-            char c = st.nextToken().charAt(0);
-            if(c == 'L') {
-                 while(d --> 0) {
-                    distanceB--;
-                    arrayListB.add(distanceB);
-                }
-            }
-            if(c == 'R') {
-                 while(d --> 0) {
-                    distanceB++;
-                    arrayListB.add(distanceB);
-                }
+        if(timeA < timeB) {
+            for(int i = timeA; i < timeB; i++) {
+                posA[i] = posA[i - 1];
             }
         }
-        int aSize = arrayListA.size();
-        int bSize = arrayListB.size();
-        if(aSize > bSize) {
-            int l = aSize - bSize;
-            for(int i = 0; i < l; i++) {
-                arrayListB.add(arrayListB.get(bSize-1));
+        else if(timeA > timeB) {
+            for(int i = timeB; i < timeA; i++) {
+                posB[i] = posB[i - 1];
             }
         }
-        if(aSize < bSize) {
-            int l = bSize - aSize;
-            for(int i = 0; i < l; i++) {
-                arrayListA.add(arrayListA.get(aSize-1));
-            }
+        int cnt = 0;
+        int timeMax = 0;
+        if(timeA < timeB)
+            timeMax = timeB;
+        else
+            timeMax = timeA;
+        
+        for(int i = 1; i < timeMax; i++) {
+            if(posA[i] == posB[i] && posA[i - 1] != posB[i - 1])
+                cnt++;
         }
-        int result = 0;
-        for(int i = 1; i < arrayListA.size(); i++) {
-            if(arrayListA.get(i) == arrayListB.get(i)) {
-                if(arrayListA.get(i-1) != arrayListB.get(i-1)) result++;
-            }
-        }
-        System.out.println(result);
-        // System.out.println(arrayListA.toString());
-        // System.out.println(arrayListB.toString());
+        
+        System.out.print(cnt);
     }
 }
