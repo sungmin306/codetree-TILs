@@ -15,7 +15,7 @@ public class Main {
         Person[] people = new Person[N+1];
         for(int i = 1; i < N+1; i++) {
             if(i == P) {
-                people[i] = new Person(1,K);
+                people[i] = new Person(1,0);
             }
             else people[i] = new Person(0,0);
         }
@@ -32,36 +32,12 @@ public class Main {
         for(int i = 0; i < tests.length; i++) {
             int x = tests[i].x;
             int y = tests[i].y;
-            if(people[x].g == 1 && people[x].k != 0) {
-                if(people[y].g == 1) {
-                    if(people[y].k != 0) {
-                        people[x].k--;
-                        people[y].k--;
-                    }
-                    else {
-                        people[x].k--;
-                    }
-                }
-                else {
-                    people[y].g = 1;
-                    people[y].k = K;
-                }
-            }
-            if(people[y].g == 1 && people[y].k != 0) {
-                if(people[x].g == 1) {
-                    if(people[x].k != 0) {
-                        people[y].k--;
-                        people[x].k--;
-                    }
-                    else {
-                        people[y].k--;
-                    }
-                }
-                else {
-                    people[x].g = 1;
-                    people[x].k = K;
-                }
-            }
+            
+            if(people[x].g == 1) people[x].k++;
+            if(people[y].g == 1) people[y].k++;
+
+            if(people[x].k <= K && people[x].g == 1) people[y].g = 1;
+            if(people[y].k <= K && people[y].g == 1) people[x].g = 1;
             
         }
         for(int i = 1; i < N + 1; i++) {
