@@ -15,17 +15,12 @@ public class Main {
         for(int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if(c == 'L') {
-                dir = dir - 1;
+                dir = (dir + 3) % 4;
             }
             else if(c == 'R') {
-                dir = dir + 1;
+                dir = (dir + 1) % 4;
             }
-            if (dir == 4) {
-                dir = 0;
-            }
-            if (dir == -1) {
-                dir = 3;
-            }
+
             if(c == 'L') {
                 x = x + dx[dir];
                 y = y + dy[dir];
