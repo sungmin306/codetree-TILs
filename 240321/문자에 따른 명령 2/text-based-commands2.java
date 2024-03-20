@@ -21,7 +21,7 @@ public class Main {
                 dir = (dir + 1) % 4;
             }
 
-            if(c == 'L') {
+            if(c == 'F') {
                 x = x + dx[dir];
                 y = y + dy[dir];
             }
