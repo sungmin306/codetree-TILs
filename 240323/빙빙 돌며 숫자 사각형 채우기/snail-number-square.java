@@ -11,7 +11,7 @@ public class Main {
     public static int direct = 0;
     
     public static boolean inRange(int x, int y) {
-        return (0 <= x && x < n && 0 <= y && y < n);
+        return (0 <= x && x < n && 0 <= y && y < m);
     }
     public static void main(String[] args)throws IOException {
         // 여기에 코드를 작성해주세요.
