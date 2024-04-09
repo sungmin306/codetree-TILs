@@ -1,59 +1,43 @@
 import java.util.*;
 import java.io.*;
 
-
 public class Main {
-    public static int n;
-    public static int x,y,nx,ny;
 
+    public static int n;
+    public static int x,y;
+    public static int moveDir, moveNum;
     public static int[][] map;
+
     public static int[] dx = {0,-1,0,1};
-    public static int[] dy = {1,0,-1,0};
-    public static int dirNum = 0;
+    public static int[] dy = {1,0,-1,0}; 
 
     public static boolean inRange(int x, int y) {
         return 0 <= x && x < n && 0 <= y && y < n;
     }
-
-    public static boolean customRange(int x, int y, int rangeSize) {
-        if( x < 0 || x >= n || y < 0 || y >= n) return false;
-        return n/2 - rangeSize <= x && x < n/2 + rangeSize  && n/2 - rangeSize  <= y && y < n/2 + rangeSize;
-    }
-
-
     public static void main(String[] args)throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         map = new int[n][n];
+
         x = n / 2;
         y = n / 2;
+        moveDir = 0;
+        moveNum = 1;
 
-        map[x][y] = 1;
-        int rangeSize = 2;
-        int changeValue = 3;
-        for(int i = 2; i <= n * n; i++) {
+        int cnt = 1;
 
-            nx = x + dx[dirNum];
-            ny = y + dy[dirNum];
-            // System.out.println(nx + " " + ny);
-
-            if(!customRange(nx,ny, rangeSize)) {
-                dirNum = (dirNum + 1) % 4;
+        while(inRange(x,y)) {
+            
+            for(int i = 0; i < moveNum; i++) {
+                map[x][y] = cnt++;
+                x = x + dx[moveDir];
+                y = y + dy[moveDir];
+                
+                if(!inRange(x,y)) break;
             }
-            x = x + dx[dirNum];
-            y = y + dy[dirNum];
-            // System.out.println("x " + x);
-            // System.out.println("y " + y);
-            map[x][y] = i;
 
-
-            if(i == changeValue * changeValue) {
-                rangeSize++;
-                changeValue += 2;
-            }
-            // System.out.println(Arrays.deepToString(map));
-
-
+            moveDir = (moveDir + 1) % 4; 
+            if(moveDir == 0 || moveDir == 2) moveNum++;
         }
 
         for(int i = 0; i < n; i++) {
@@ -62,5 +46,6 @@ public class Main {
             }
             System.out.println();
         }
+        
     }
 }
