@@ -15,6 +15,10 @@ public class Main {
                 arr[i] = '1';
                 break;
             }
+            if(i == arr.length -1) {
+                if(arr[i] == '1') arr[i] = '0';
+                else arr[i] = '1';
+            }
         }
         //System.out.println(Arrays.toString(arr));    
         System.out.println(calculator());   
@@ -22,9 +26,6 @@ public class Main {
     }
 
     public static int calculator() {
-        if(arr.length == 1) {
-            return 0;
-        }
         int sum = 0;
         for(int i = 0 ; i < arr.length; i++) {
             if(arr[i] == '1') {
