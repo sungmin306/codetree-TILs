@@ -16,15 +16,7 @@ public class Main {
                 break;
             }
         }
-        //System.out.println(Arrays.toString(arr));
-        int sum = 0;
-        for(int i = 0 ; i < arr.length; i++) {
-            if(arr[i] == '1') {
-                sum += Math.pow(2, ((arr.length) - i - 1));
-                //System.out.println(sum);
-            }
-        }
-        
+        //System.out.println(Arrays.toString(arr));    
         System.out.println(calculator());   
         
     }
