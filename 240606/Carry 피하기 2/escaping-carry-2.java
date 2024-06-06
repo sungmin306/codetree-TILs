@@ -52,6 +52,6 @@ public class Main {
             }
         }
         dfs(0,0);
-        System.out.println(result);
+        System.out.println(result==0 ? -1 : result);
     }
 }
