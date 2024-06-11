@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
 
     public static int N, S;
-    public static int result = 100;
+    public static int distance = 100;
     public static int[] arr;
 
     public static void main(String[] args)throws IOException {
@@ -20,15 +20,23 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
             totalSum += arr[i];
         }
-        
+        int n1 = 0;
+        int n2 = 0;
         for(int i = 0; i < N - 1; i++) {
             for(int j = i + 1; j < N; j++) {
                 int num = arr[i] + arr[j];
                 int temp = totalSum - num;
-                result = Math.min(result, Math.abs(S - temp));
+                if(distance > Math.abs(S - temp)) {
+                    distance = Math.abs(S - temp);
+                    n1 = arr[i];
+                    n2 = arr[j];
+                }
             }
         }
+        // System.out.println(n1);
+        // System.out.println(n2);
 
-        System.out.println(result);
+
+        System.out.println(Math.abs(S - (totalSum - (n1 + n2))));
     }
 }
