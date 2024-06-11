@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
 
     public static int N, S;
-    public static int distance = 100;
+    public static int distance = 100000000;
     public static int[] arr;
 
     public static void main(String[] args)throws IOException {
