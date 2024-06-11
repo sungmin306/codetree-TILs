@@ -24,11 +24,11 @@ public class Main {
         for(int i = 0; i < N - 1; i++) {
             for(int j = i + 1; j < N; j++) {
                 int num = arr[i] + arr[j];
-                int temp = Math.abs(totalSum - num);
-                result = Math.min(result, temp);
+                int temp = totalSum - num;
+                result = Math.min(result, Math.abs(S - temp));
             }
         }
-        
-        System.out.println(Math.abs(result - S));
+
+        System.out.println(result);
     }
 }
