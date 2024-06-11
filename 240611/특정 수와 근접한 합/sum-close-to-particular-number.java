@@ -24,7 +24,7 @@ public class Main {
         for(int i = 0; i < N - 1; i++) {
             for(int j = i + 1; j < N; j++) {
                 int num = arr[i] + arr[j];
-                int temp = totalSum - num;
+                int temp = Math.abs(totalSum - num);
                 result = Math.min(result, temp);
             }
         }
