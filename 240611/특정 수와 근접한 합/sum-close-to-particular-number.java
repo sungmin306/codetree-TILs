@@ -29,6 +29,6 @@ public class Main {
             }
         }
         
-        System.out.println(result - S);
+        System.out.println(Math.abs(result - S));
     }
 }
