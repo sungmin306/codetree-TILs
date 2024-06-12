@@ -24,7 +24,7 @@ public class Main {
 
         for(int i = 0; i < N-H; i++) {
             int temp = 0;
-            for(int j = 0; j<H; j++) {
+            for(int j = 0; j<T; j++) {
                 temp += Math.abs(H - arr[j+i]);
             }
             result = Math.min(result, temp);
