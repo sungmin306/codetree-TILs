@@ -22,7 +22,7 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        for(int i = 0; i < N-H; i++) {
+        for(int i = 0; i < N-T; i++) {
             int temp = 0;
             for(int j = 0; j<T; j++) {
                 temp += Math.abs(H - arr[j+i]);
