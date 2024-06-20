@@ -21,8 +21,8 @@ public class Main {
         for(int i = 0; i < N - 1; i++) {
             for(int j = i + 1; j < N; j++) {
                 distance = (arrX[j] - arrX[i]) * (arrX[j] - arrX[i]) + (arrY[j] - arrY[i]) * (arrY[j] - arrY[i]);
+                result = Math.min(result, distance);
             }
-            result = Math.min(result, distance);
         }
 
         System.out.println(result);
